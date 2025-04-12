@@ -29,7 +29,7 @@ export default function Home() {
   return (
     <main className="min-h-screen overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-[80vh] md:min-h-[90vh] bg-gradient-to-r from-[#0080ff]/10 to-[#00bf80]/10">
+      <section className="relative bg-gradient-to-r from-[#0080ff]/10 to-[#00bf80]/10">
         <div className="container mx-auto px-4 py-8 md:py-16">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             <motion.div
@@ -43,8 +43,13 @@ export default function Home() {
                   initial={{ rotate: -180, opacity: 0 }}
                   animate={{ rotate: 0, opacity: 1 }}
                   transition={{ duration: 0.8 }}
+                  className="h-8 w-8 overflow-hidden rounded-full"
                 >
-                  <Tooth className="h-8 w-8 text-[#0080ff]" />
+                  <img
+                    src="/images/logo.jpg"
+                    alt="City Dental Surgery Logo"
+                    className="w-full h-full object-cover"
+                  />
                 </motion.div>
                 <h1 className="text-2xl md:text-3xl font-bold">City Dental Surgery</h1>
               </div>
@@ -65,14 +70,14 @@ export default function Home() {
                     <motion.img
                       key={i}
                       whileHover={{ scale: 1.1 }}
-                      src={`https://images.unsplash.com/photo-${i}?w=50&h=50&fit=crop`}
+                      src={`https://api.dicebear.com/7.x/micah/svg?seed=patient${i}&backgroundColor=0080ff,00bf80,f5a623`}
                       alt="Pacient Fericit"
                       className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-white"
                     />
                   ))}
                 </div>
                 <p className="text-xs sm:text-sm text-gray-600">
-                  <span className="font-bold">500+</span> pacienți mulțumiți anul acesta
+                  <span className="font-bold">120+</span> pacienți mulțumiți anul acesta
                 </p>
               </motion.div>
               <motion.div
@@ -81,26 +86,36 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
               >
-                <Button
-                  size="lg"
-                  className="w-full sm:w-auto bg-[#0080ff] hover:bg-[#0080ff]/90 mb-2 sm:mb-0"
-
+                <motion.div
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  Programează Consultație Gratuită
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="w-full sm:w-auto border-[#00bf80] text-[#00bf80] hover:bg-[#00bf80] hover:text-white"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Vezi Tratamentele
-                </Button>
+                  {/*<a href="mailto:inayab_mo@yahoo.com" className="hover:underline">*/}
+                  {/*  <h3 className="font-semibold">Email</h3>*/}
+                  {/*  <p className="text-gray-600">inayab_mo@yahoo.com</p>*/}
+                  {/*</a>*/}
+                  <Button
+                    size="lg"
+                    className="w-full sm:w-auto bg-[#0080ff] hover:bg-[#0080ff]/90 mb-2 sm:mb-0"
+                    onClick={() => window.open("https://wa.me/40771376927", "_blank")}
+                  >
+                    Programează Consultație Gratuită
+                  </Button>
+                </motion.div>
+                </motion.div>
+                {/*<motion.div*/}
+                {/*  whileHover={{ scale: 1.05 }}*/}
+                {/*  whileTap={{ scale: 0.95 }}*/}
+                {/*>*/}
+                {/*  <Button*/}
+                {/*    size="lg"*/}
+                {/*    variant="outline"*/}
+                {/*    className="w-full sm:w-auto border-[#00bf80] text-[#00bf80] hover:bg-[#00bf80] hover:text-white"*/}
+                {/*  >*/}
+                {/*    Vezi Tratamentele*/}
+                {/*  </Button>*/}
+                {/*</motion.div>*/}
               </motion.div>
-            </motion.div>
             <motion.div
               className="relative"
               initial={{ opacity: 0, x: 100 }}
@@ -108,7 +123,7 @@ export default function Home() {
               transition={{ duration: 0.8 }}
             >
               <img
-                src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=1000"
+                src="/images/first.JPG"
                 alt="Rezultat Zâmbet Frumos"
                 className="rounded-lg shadow-2xl w-full h-auto"
               />
@@ -120,8 +135,8 @@ export default function Home() {
               >
                 <div className="flex items-center gap-2">
                   <Star className="h-4 w-4 md:h-5 md:w-5 text-yellow-400 fill-yellow-400" />
-                  <span className="text-sm md:text-base font-bold">4.9/5</span>
-                  <span className="text-xs md:text-sm text-gray-600">(200+ Recenzii)</span>
+                  <span className="text-sm md:text-base font-bold">4.8/5</span>
+                  {/*<span className="text-xs md:text-sm text-gray-600">(200+ Recenzii)</span>*/}
                 </div>
               </motion.div>
             </motion.div>
@@ -166,7 +181,7 @@ export default function Home() {
               {
                 icon: <BadgeEuro className="h-8 w-8 text-[#00bf80]" />,
                 title: "Plată Flexibilă",
-                description: "Planuri accesibile și opțiuni de acoperire prin asigurare"
+                description: "Acceptăm numerar și transferuri bancare. De asemenea, lucrăm cu majoritatea companiilor de asigurări dentare."
               }
             ].map((item, index) => (
               <motion.div
@@ -211,9 +226,9 @@ export default function Home() {
                 <Card className="p-4 md:p-6 hover:shadow-lg transition-shadow h-full">
                   <h3 className="text-lg md:text-xl font-semibold mb-3 md:mb-4">{service.title}</h3>
                   <p className="text-gray-600 text-sm md:text-base mb-4">{service.description}</p>
-                  <Button variant="link" className="text-[#0080ff] p-0">
-                    Află Mai Multe <ChevronRight className="h-4 w-4 ml-1" />
-                  </Button>
+                  {/*<Button variant="link" className="text-[#0080ff] p-0">*/}
+                  {/*  Află Mai Multe <ChevronRight className="h-4 w-4 ml-1" />*/}
+                  {/*</Button>*/}
                 </Card>
               </motion.div>
             ))}
@@ -269,11 +284,35 @@ export default function Home() {
             <motion.div variants={fadeIn}>
               <h2 className="text-2xl md:text-3xl font-bold mb-6 md:mb-8">Contactează-ne</h2>
               <div className="space-y-4 md:space-y-6">
+                <motion.div
+                    className="flex items-center gap-3 md:gap-4"
+                    variants={fadeIn}
+                    whileHover={{ x: 10 }}
+                >
+                  <div className={`h-10 w-10 md:h-12 md:w-12 rounded-full bg-[#0080ff]/10 flex items-center justify-center flex-shrink-0`}>
+                    <Phone className="h-6 w-6 text-[#0080ff]" />
+                  </div>
+                  <a href="tel:+40771376927" className="hover:underline">
+                    <h3 className="font-semibold">Telefon</h3>
+                    <p className="text-gray-600">+40 (771) 376 927</p>
+                  </a>
+                </motion.div>
+                <motion.div
+                    className="flex items-center gap-3 md:gap-4"
+                    variants={fadeIn}
+                    whileHover={{ x: 10 }}
+                >
+                  <div className={`h-10 w-10 md:h-12 md:w-12 rounded-full bg-[#0080ff]/10 flex items-center justify-center flex-shrink-0`}>
+                    <Mail className="h-6 w-6 text-[#00bf80]" />
+                  </div>
+                  <a href="mailto:inayab_mo@yahoo.com" className="hover:underline">
+                    <h3 className="font-semibold">Email</h3>
+                    <p className="text-gray-600">inayab_mo@yahoo.com</p>
+                  </a>
+                </motion.div>
                 {[
-                  { icon: <Phone className="h-6 w-6 text-[#0080ff]" />, title: "Telefon", content: "+40 123 456 789" },
-                  { icon: <Mail className="h-6 w-6 text-[#00bf80]" />, title: "Email", content: "contact@citydentalsurgery.ro" },
-                  { icon: <MapPin className="h-6 w-6 text-[#0080ff]" />, title: "Adresă", content: "Str. Exemplu 123, Cluj-Napoca, România" },
-                  { icon: <Clock className="h-6 w-6 text-[#00bf80]" />, title: "Program", content: ["Luni - Vineri: 9:00 - 18:00", "Sâmbătă: 9:00 - 14:00"] }
+                  { icon: <MapPin className="h-6 w-6 text-[#0080ff]" />, title: "Adresă", content: "Bună Ziua nr 82, C1, Cluj-Napoca, Cluj" },
+                  { icon: <Clock className="h-6 w-6 text-[#00bf80]" />, title: "Program", content: ["Luni - Vineri: 09:00 - 19:00", "Sâmbătă-Duminică: Urgențe la numărul de telefon afișat"] }
                 ].map((item, index) => (
                   <motion.div
                     key={index}
@@ -304,7 +343,7 @@ export default function Home() {
               whileHover={{ scale: 1.02 }}
             >
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d87016.59708559!2d23.5435627!3d46.7712101!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47490c1f916c0b8b%3A0xbbc601c331f148b!2sCluj-Napoca%2C%20Romania!5e0!3m2!1sen!2s!4v1659885347254!5m2!1sen!2s"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2733.753102888468!2d23.60365607696606!3d46.75005017112406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47490db5e542e849%3A0xbe0afe6ff1884101!2sc1%2C%20Strada%20Bun%C4%83%20Ziua%2082%2C%20Cluj-Napoca!5e0!3m2!1sro!2sro!4v1744477263261!5m2!1sro!2sro"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -335,10 +374,10 @@ export default function Home() {
               <p className="text-base md:text-lg lg:text-xl opacity-90 max-w-3xl mx-auto">Fă primul pas către zâmbetul perfect. Echipa noastră de specialiști te așteaptă pentru o evaluare completă.</p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-10">
               {/* WhatsApp */}
               <motion.a
-                href="https://wa.me/40123456789"
+                href="https://wa.me/40771376927"
                 className="bg-white/10 backdrop-blur-sm hover:bg-white/20 rounded-xl p-4 md:p-6 flex flex-col items-center text-center transition-all duration-300 border border-white/20 hover:border-white/40 group"
                 variants={fadeIn}
                 whileHover={{ y: -5 }}
@@ -351,30 +390,30 @@ export default function Home() {
                 <h3 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">WhatsApp</h3>
                 <p className="opacity-80 mb-3 md:mb-4 text-sm md:text-base">Trimite-ne un mesaj pentru programări rapide și întrebări</p>
                 <span className="flex items-center text-sm font-medium">
-                  <span>+40 123 456 789</span>
+                  <span>+40 (771) 376 927</span>
                   <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </span>
               </motion.a>
 
               {/* Telegram */}
-              <motion.a
-                href="https://t.me/citydentalsurgery"
-                className="bg-white/10 backdrop-blur-sm hover:bg-white/20 rounded-xl p-4 md:p-6 flex flex-col items-center text-center transition-all duration-300 border border-white/20 hover:border-white/40 group"
-                variants={fadeIn}
-                whileHover={{ y: -5 }}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <div className="h-14 w-14 md:h-16 md:w-16 bg-white/20 rounded-full flex items-center justify-center mb-3 md:mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <Send className="h-8 w-8" />
-                </div>
-                <h3 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">Telegram</h3>
-                <p className="opacity-80 mb-3 md:mb-4 text-sm md:text-base">Contactează-ne pe Telegram pentru asistență și sfaturi</p>
-                <span className="flex items-center text-sm font-medium">
-                  <span>@citydentalsurgery</span>
-                  <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                </span>
-              </motion.a>
+              {/*<motion.a*/}
+              {/*  href="https://t.me/citydentalsurgery"*/}
+              {/*  className="bg-white/10 backdrop-blur-sm hover:bg-white/20 rounded-xl p-4 md:p-6 flex flex-col items-center text-center transition-all duration-300 border border-white/20 hover:border-white/40 group"*/}
+              {/*  variants={fadeIn}*/}
+              {/*  whileHover={{ y: -5 }}*/}
+              {/*  target="_blank"*/}
+              {/*  rel="noopener noreferrer"*/}
+              {/*>*/}
+              {/*  <div className="h-14 w-14 md:h-16 md:w-16 bg-white/20 rounded-full flex items-center justify-center mb-3 md:mb-4 group-hover:scale-110 transition-transform duration-300">*/}
+              {/*    <Send className="h-8 w-8" />*/}
+              {/*  </div>*/}
+              {/*  <h3 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">Telegram</h3>*/}
+              {/*  <p className="opacity-80 mb-3 md:mb-4 text-sm md:text-base">Contactează-ne pe Telegram pentru asistență și sfaturi</p>*/}
+              {/*  <span className="flex items-center text-sm font-medium">*/}
+              {/*    <span>@citydentalsurgery</span>*/}
+              {/*    <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />*/}
+              {/*  </span>*/}
+              {/*</motion.a>*/}
 
               {/* Direct Call */}
               <motion.a
@@ -388,27 +427,30 @@ export default function Home() {
                 </div>
                 <h3 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">Sună Acum</h3>
                 <p className="opacity-80 mb-3 md:mb-4 text-sm md:text-base">Vorbește direct cu recepția noastră pentru programări urgente</p>
-                <span className="flex items-center text-sm font-medium">
-                  <span>+40 123 456 789</span>
+                <a href="tel:+40771376927" className="flex items-center text-sm font-medium">
+                  <span>+40 (771) 376 927</span>
                   <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                </span>
+                </a>
               </motion.a>
             </div>
 
-            <motion.div
-              className="text-center"
-              variants={fadeIn}
-            >
-              <Button
-                size="lg"
-                className="bg-white text-[#0080ff] hover:bg-white/90 px-6 md:px-8 py-5 md:py-6 text-base md:text-lg rounded-full group w-full sm:w-auto"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <span>Programează Online</span>
-                <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </motion.div>
+            {/*<motion.div*/}
+            {/*  className="text-center"*/}
+            {/*  variants={fadeIn}*/}
+            {/*>*/}
+            {/*  <motion.div*/}
+            {/*    whileHover={{ scale: 1.05 }}*/}
+            {/*    whileTap={{ scale: 0.98 }}*/}
+            {/*  >*/}
+            {/*    <Button*/}
+            {/*      size="lg"*/}
+            {/*      className="bg-white text-[#0080ff] hover:bg-white/90 px-6 md:px-8 py-5 md:py-6 text-base md:text-lg rounded-full group w-full sm:w-auto"*/}
+            {/*    >*/}
+            {/*      <span>Programează Online</span>*/}
+            {/*      <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />*/}
+            {/*    </Button>*/}
+            {/*  </motion.div>*/}
+            {/*</motion.div>*/}
           </div>
         </div>
       </motion.section>
@@ -422,11 +464,17 @@ export default function Home() {
         variants={staggerChildren}
       >
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-8 md:mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 mb-8 md:mb-12">
             {/* About */}
             <motion.div variants={fadeIn}>
               <div className="flex items-center gap-2 mb-4 md:mb-6">
-                <Tooth className="h-8 w-8 text-[#0080ff]" />
+                <div className="h-8 w-8 overflow-hidden rounded-full">
+                  <img
+                    src="/images/logo.jpg"
+                    alt="City Dental Surgery Logo"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 <h3 className="text-xl font-bold">City Dental Surgery</h3>
               </div>
               <p className="text-gray-400 mb-4 md:mb-6 text-sm md:text-base">
@@ -434,26 +482,26 @@ export default function Home() {
               </p>
               <div className="flex gap-4">
                 <motion.a
-                  href="#"
+                  href="https://www.facebook.com/share/1SW8t2tVeb/?mibextid=wwXIfr"
                   className="hover:text-[#0080ff] transition-colors"
                   whileHover={{ scale: 1.2 }}
                 >
                   <Facebook className="h-6 w-6" />
                 </motion.a>
-                <motion.a
-                  href="#"
-                  className="hover:text-[#0080ff] transition-colors"
-                  whileHover={{ scale: 1.2 }}
-                >
-                  <Instagram className="h-6 w-6" />
-                </motion.a>
-                <motion.a
-                  href="#"
-                  className="hover:text-[#0080ff] transition-colors"
-                  whileHover={{ scale: 1.2 }}
-                >
-                  <Linkedin className="h-6 w-6" />
-                </motion.a>
+                {/*<motion.a*/}
+                {/*  href="#"*/}
+                {/*  className="hover:text-[#0080ff] transition-colors"*/}
+                {/*  whileHover={{ scale: 1.2 }}*/}
+                {/*>*/}
+                {/*  <Instagram className="h-6 w-6" />*/}
+                {/*</motion.a>*/}
+                {/*<motion.a*/}
+                {/*  href="#"*/}
+                {/*  className="hover:text-[#0080ff] transition-colors"*/}
+                {/*  whileHover={{ scale: 1.2 }}*/}
+                {/*>*/}
+                {/*  <Linkedin className="h-6 w-6" />*/}
+                {/*</motion.a>*/}
               </div>
             </motion.div>
 
@@ -472,36 +520,36 @@ export default function Home() {
                     key={index}
                     whileHover={{ x: 10 }}
                   >
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                    <span className="text-gray-400 hover:text-white transition-colors">
                       {service}
-                    </a>
+                    </span>
                   </motion.li>
                 ))}
               </ul>
             </motion.div>
 
             {/* Quick Links */}
-            <motion.div variants={fadeIn}>
-              <h3 className="text-lg font-semibold mb-4 md:mb-6">Link-uri Rapide</h3>
-              <ul className="space-y-2 md:space-y-3 text-sm md:text-base">
-                {[
-                  "Despre Noi",
-                  "Echipa Noastră",
-                  "Prețuri",
-                  "Blog",
-                  "Contact"
-                ].map((link, index) => (
-                  <motion.li
-                    key={index}
-                    whileHover={{ x: 10 }}
-                  >
-                    <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                      {link}
-                    </a>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
+            {/*<motion.div variants={fadeIn}>*/}
+            {/*  <h3 className="text-lg font-semibold mb-4 md:mb-6">Link-uri Rapide</h3>*/}
+            {/*  <ul className="space-y-2 md:space-y-3 text-sm md:text-base">*/}
+            {/*    {[*/}
+            {/*      "Despre Noi",*/}
+            {/*      "Echipa Noastră",*/}
+            {/*      "Prețuri",*/}
+            {/*      "Blog",*/}
+            {/*      "Contact"*/}
+            {/*    ].map((link, index) => (*/}
+            {/*      <motion.li*/}
+            {/*        key={index}*/}
+            {/*        whileHover={{ x: 10 }}*/}
+            {/*      >*/}
+            {/*        <a href="#" className="text-gray-400 hover:text-white transition-colors">*/}
+            {/*          {link}*/}
+            {/*        </a>*/}
+            {/*      </motion.li>*/}
+            {/*    ))}*/}
+            {/*  </ul>*/}
+            {/*</motion.div>*/}
 
             {/* Contact */}
             <motion.div variants={fadeIn}>
@@ -512,28 +560,34 @@ export default function Home() {
                   whileHover={{ x: 10 }}
                 >
                   <MapPin className="h-5 w-5 text-[#0080ff] mt-1" />
-                  <span className="text-gray-400">Str. Exemplu 123, Cluj-Napoca, România</span>
+                  <span className="text-gray-400">Bună Ziua nr 82, C1, Cluj-Napoca, Cluj</span>
                 </motion.li>
                 <motion.li
                   className="flex items-center gap-3"
                   whileHover={{ x: 10 }}
                 >
                   <Phone className="h-5 w-5 text-[#0080ff]" />
-                  <span className="text-gray-400">+40 123 456 789</span>
+                  <span className="text-gray-400">+40 (771) 376 927</span>
                 </motion.li>
                 <motion.li
                   className="flex items-center gap-3"
                   whileHover={{ x: 10 }}
                 >
                   <Mail className="h-5 w-5 text-[#0080ff]" />
-                  <span className="text-gray-400">contact@citydentalsurgery.ro</span>
+                  <span className="text-gray-400">inayab_mo@yahoo.com</span>
                 </motion.li>
                 <motion.li
                   className="flex items-center gap-3"
                   whileHover={{ x: 10 }}
                 >
                   <Clock className="h-5 w-5 text-[#0080ff]" />
-                  <span className="text-gray-400">Luni - Vineri: 9:00 - 18:00</span>
+                  <span className="text-gray-400">Luni - Vineri 09:00-19:00</span>
+                </motion.li>
+                <motion.li
+                    className="flex items-center gap-3"
+                    whileHover={{ x: 10 }}
+                >
+                  <span className="text-gray-400">Sâmbătă - Duminică: Urgențe la numărul de telefon afișat</span>
                 </motion.li>
               </ul>
             </motion.div>
@@ -548,29 +602,29 @@ export default function Home() {
               <p className="text-gray-400 text-sm">
                 © {new Date().getFullYear()} City Dental Surgery. Toate drepturile rezervate.
               </p>
-              <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-                <motion.a
-                  href="#"
-                  className="text-gray-400 hover:text-white text-sm transition-colors"
-                  whileHover={{ scale: 1.1 }}
-                >
-                  Politica de Confidențialitate
-                </motion.a>
-                <motion.a
-                  href="#"
-                  className="text-gray-400 hover:text-white text-sm transition-colors"
-                  whileHover={{ scale: 1.1 }}
-                >
-                  Termeni și Condiții
-                </motion.a>
-                <motion.a
-                  href="#"
-                  className="text-gray-400 hover:text-white text-sm transition-colors"
-                  whileHover={{ scale: 1.1 }}
-                >
-                  Cookies
-                </motion.a>
-              </div>
+              {/*<div className="flex flex-wrap justify-center gap-4 md:gap-6">*/}
+              {/*  <motion.a*/}
+              {/*    href="#"*/}
+              {/*    className="text-gray-400 hover:text-white text-sm transition-colors"*/}
+              {/*    whileHover={{ scale: 1.1 }}*/}
+              {/*  >*/}
+              {/*    Politica de Confidențialitate*/}
+              {/*  </motion.a>*/}
+              {/*  <motion.a*/}
+              {/*    href="#"*/}
+              {/*    className="text-gray-400 hover:text-white text-sm transition-colors"*/}
+              {/*    whileHover={{ scale: 1.1 }}*/}
+              {/*  >*/}
+              {/*    Termeni și Condiții*/}
+              {/*  </motion.a>*/}
+              {/*  <motion.a*/}
+              {/*    href="#"*/}
+              {/*    className="text-gray-400 hover:text-white text-sm transition-colors"*/}
+              {/*    whileHover={{ scale: 1.1 }}*/}
+              {/*  >*/}
+              {/*    Cookies*/}
+              {/*  </motion.a>*/}
+              {/*</div>*/}
             </div>
           </motion.div>
         </div>
