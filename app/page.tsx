@@ -293,6 +293,7 @@ export default function Home() {
 
       {/* Why Choose Us Section */}
       <motion.section
+        id="about"
         className='py-20 bg-white'
         initial='hidden'
         whileInView='visible'
@@ -419,6 +420,7 @@ export default function Home() {
 
       {/* Our Works Section */}
       <motion.section
+        id="works"
         className='py-20 bg-white'
         initial='hidden'
         whileInView='visible'
@@ -572,6 +574,7 @@ export default function Home() {
 
       {/* Services Section */}
       <motion.section
+        id="services"
         className='py-20 bg-white'
         initial='hidden'
         whileInView='visible'
@@ -607,6 +610,7 @@ export default function Home() {
 
       {/* Price List Section */}
       <motion.section
+        id="pricing"
         className='py-20 bg-gray-50'
         initial='hidden'
         whileInView='visible'
@@ -738,6 +742,7 @@ export default function Home() {
 
       {/* FAQ Section */}
       <motion.section
+        id="faq"
         className='py-20 bg-white'
         initial='hidden'
         whileInView='visible'
@@ -782,6 +787,7 @@ export default function Home() {
 
       {/* Contact Section */}
       <motion.section
+        id="contact"
         className='py-20 bg-gray-50'
         initial='hidden'
         whileInView='visible'

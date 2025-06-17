@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run update-sitemap && next build",
     "start": "next start",
     "lint": "next lint",
+    "update-sitemap": "node scripts/update-sitemap.js",
     "sanity:dev": "sanity dev",
     "sanity:start": "sanity start",
     "sanity:build": "sanity build",
