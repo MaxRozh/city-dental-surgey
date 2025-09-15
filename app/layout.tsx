@@ -2,6 +2,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import StructuredData from '@/components/StructuredData';
+import Script from 'next/script';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -77,6 +78,26 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           name='google-site-verification'
           content='_GViOzCizBV1XehWURCjSN5BJQh4-0LjR3mYzFu6O5M'
         />
+        <Script
+          async
+          src=''
+        />
+        <Script
+          src='https://www.googletagmanager.com/gtag/js?id=AW-17555042525'
+          strategy='afterInteractive'
+        />
+        <Script
+          id='gtag-init'
+          strategy='afterInteractive'
+        >
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            window.gtag = gtag;
+            gtag('js', new Date());
+            gtag('config', 'AW-17555042525', { page_path: window.location.pathname });
+          `}
+        </Script>
       </head>
       <body className={inter.className}>
         <StructuredData />
