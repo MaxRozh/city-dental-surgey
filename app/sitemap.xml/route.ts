@@ -1,13 +1,8 @@
 import { NextResponse } from 'next/server';
 
 export async function GET() {
-  // Base URL - update this to your actual domain
   const baseUrl = 'https://www.dental-clinic.art';
-
-  // Current date for lastmod
   const currentDate = new Date().toISOString();
-
-  // Define your site's URLs with their priorities and change frequencies
   const urls = [
     {
       url: baseUrl,
@@ -53,7 +48,6 @@ export async function GET() {
     },
   ];
 
-  // Generate XML sitemap
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls

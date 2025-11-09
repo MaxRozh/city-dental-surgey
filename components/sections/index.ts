@@ -1,0 +1,10 @@
+export { HeroSection } from './HeroSection';
+export { WhyChooseUs } from './WhyChooseUs';
+export { ProblemsSolutions } from './ProblemsSolutions';
+export { OurWorks } from './OurWorks';
+export { Services } from './Services';
+export { PriceList } from './PriceList';
+export { FAQ } from './FAQ';
+export { Contact } from './Contact';
+export { CTA } from './CTA';
+export { Footer } from './Footer';
